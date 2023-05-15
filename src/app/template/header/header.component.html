@@ -1,0 +1,17 @@
+<mat-toolbar class="header">
+    <h1>AnimesON</h1>
+    <form>
+        <input name="barra" type="text" [(ngModel)]="input" (input)="search()" placeholder="Digite um anime">    
+            <mat-icon>search</mat-icon>
+    </form>
+</mat-toolbar>
+
+<h3>Animes</h3>
+<div class="barra"></div>
+
+<main>
+    <div class="content" *ngFor="let anime of animes">
+        <img [src]="anime.images.jpg.image_url">
+        <h3>{{ anime.title }}</h3>
+    </div>
+</main>
