@@ -13,12 +13,9 @@ input {
     height: 10px;
     border-radius: 8px;
     padding: 13px;
-}
-
-h1 {
-    font-family: 'Grandstander', cursive;
-    font-weight: 900;
-    color: white;
+    font-size: 14px;
+    border: none;
+    outline: none;
 }
 
 mat-icon {
@@ -42,6 +39,12 @@ main {
     border: 1px solid  blueviolet;
 }
 
+h4 {
+    color: white;
+    margin-left: 8%;
+    margin-top: 10px;
+}
+
 h3 {
     color: white;
     margin-left: 8%;
@@ -52,3 +55,46 @@ h3 {
     width: 200px;
     height: auto;
 }
+
+img:hover {
+    box-shadow: 1px 0.1px 10px white;
+}
+
+h3:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+h1 {
+    font-size: 24px;
+    color: #eeecec;
+    font-weight: 800;
+    font-family: 'Grandstander', cursive;
+    position: relative;
+    cursor: default;
+    background: none;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+  }
+
+  h1:focus:after,
+  h1:hover:after {
+    width: 100%;
+    left: 0%;
+  }
+  
+  h1:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
+  }

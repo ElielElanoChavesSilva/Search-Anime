@@ -19,7 +19,6 @@ export class HeaderComponent implements OnInit {
   search(){
     const url = `https://api.jikan.moe/v4/anime?q=${this.input}`
         this.service.searchAnime(url).subscribe((response: any) => {
-          const animedata = response.data[0];
           this.animes = response.data
           console.log(this.animes);
     })
