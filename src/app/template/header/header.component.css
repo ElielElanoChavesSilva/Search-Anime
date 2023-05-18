@@ -26,13 +26,11 @@ mat-icon {
 
 main {
     display: flex;
-    width: 85%;
-    height: 100%;
+    width: 89vw;
     margin: 0 auto;
     margin-top: 40px; 
     flex-wrap: wrap;
-    justify-items: center;
-    gap: 34px;
+    gap: 49px;
 }
 
 .barra {
@@ -55,16 +53,23 @@ h3 {
     width: 200px;
     height: auto;
 }
+/* hover */
+
+.content:hover  h3 {
+    margin-top: 20px;
+    transition: calc(0.8s);
+}
 
 img:hover {
-    box-shadow: 1px 0.1px 10px white;
+    box-shadow: 1px 0.6px 10px  blueviolet;
+    transform: scale(1.1);
+    transition: calc(0.8s);
 }
 
 h3:hover {
     text-decoration: underline;
     cursor: pointer;
 }
-
 
 h1 {
     font-size: 24px;
@@ -79,22 +84,22 @@ h1 {
     transition-property: color;
   }
 
-  h1:focus:after,
-  h1:hover:after {
-    width: 100%;
-    left: 0%;
-  }
-  
-  h1:after {
-    content: "";
-    pointer-events: none;
-    bottom: -2px;
-    left: 50%;
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    background-color: #fff;
-    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-    transition-duration: 400ms;
-    transition-property: width, left;
-  }
+h1:focus:after,
+h1:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+h1:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}

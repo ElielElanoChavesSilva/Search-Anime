@@ -6,5 +6,5 @@ export interface AnimeModel
         {
             image_url: string
         }
-    }
+    },
 }
