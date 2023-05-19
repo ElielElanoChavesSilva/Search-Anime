@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { MatCardModule } from '@angular/material/card'
 import { AnimeService } from './service/anime.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AnimeService } from './service/anime.service';
     BrowserAnimationsModule,
     HttpClientModule,
     MatCardModule,
+    AppRoutingModule,
   ],
   providers: [AnimeService],
   bootstrap: [AppComponent]

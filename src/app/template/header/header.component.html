@@ -1,7 +1,7 @@
 <mat-toolbar class="header">
     <h1>AnimesON</h1>
     <form>
-        <input name="barra" type="text" [(ngModel)]="input" (input)="search()" placeholder="Digite um anime">    
+        <input name="barra" type="text" [(ngModel)]="input" (keyup)="onSearchKeyUp()" placeholder="Digite um anime">    
             <mat-icon>search</mat-icon>
     </form>
 </mat-toolbar>

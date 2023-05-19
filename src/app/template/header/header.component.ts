@@ -1,7 +1,7 @@
 import { AnimeModel } from './../../service/anime.module';
 import { Component, OnInit } from '@angular/core';
 import { AnimeService } from 'src/app/service/anime.service';
-import { delay } from 'rxjs';
+import { Subject, debounceTime, delay } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +9,14 @@ import { delay } from 'rxjs';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  ngOnInit(): void { }
+  private searchInput: Subject<string> = new Subject<string>();
+  private debounceTimeMs = 500;
+
+  ngOnInit(): void {
+    this.searchInput.pipe(debounceTime(this.debounceTimeMs)).subscribe(() => {
+      this.search();
+    });
+  }
 
   animes: AnimeModel[] = []
   input: string = '';
@@ -18,10 +25,11 @@ export class HeaderComponent implements OnInit {
 
   search(){
     const url = `https://api.jikan.moe/v4/anime?q=${this.input}`
-        this.service.searchAnime(url).pipe(delay(1000)).subscribe((response: any) => {
-          const data = response.data
+        this.service.searchAnime(url).pipe(debounceTime(1000)).subscribe((response: any) => {
           this.animes = response.data
-          console.log(data);
     })
+  }
+  onSearchKeyUp() {
+    this.searchInput.next(this.input);
   }
 }
