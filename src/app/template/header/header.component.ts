@@ -10,10 +10,9 @@ import { Subject, debounceTime, delay } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
   private searchInput: Subject<string> = new Subject<string>();
-  private debounceTimeMs = 500;
 
   ngOnInit(): void {
-    this.searchInput.pipe(debounceTime(this.debounceTimeMs)).subscribe(() => {
+    this.searchInput.pipe(debounceTime(500)).subscribe(() => {
       this.search();
     });
   }
@@ -26,7 +25,7 @@ export class HeaderComponent implements OnInit {
   search(){
     const url = `https://api.jikan.moe/v4/anime?q=${this.input}`
         this.service.searchAnime(url).pipe(debounceTime(1000)).subscribe((response: any) => {
-          this.animes = response.data
+          this.animes = response.data 
     })
   }
   onSearchKeyUp() {
